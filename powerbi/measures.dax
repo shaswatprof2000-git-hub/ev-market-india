@@ -110,6 +110,68 @@ Revenue Growth FY22-24 =
 Revenue Growth FY23-24 =
     DIVIDE ( [Revenue FY2024 (Rs Cr)], [Revenue FY2023 (Rs Cr)] ) - 1
 
+// Format: 0.00%   Folder: 6 Dashboard
+2W Penetration FY2024 =
+    CALCULATE ( [EV Penetration %], dim_date[fiscal_year] = 2024, dim_vehicle_category[vehicle_category] = "2-Wheelers" )
+
+// Format: 0.00%   Folder: 6 Dashboard
+4W Penetration FY2024 =
+    CALCULATE ( [EV Penetration %], dim_date[fiscal_year] = 2024, dim_vehicle_category[vehicle_category] = "4-Wheelers" )
+
+// Format: 0.00%   Folder: 6 Dashboard
+Q2 Top 5 States 2W Penetration FY2024 =
+    VAR v = [2W Penetration FY2024]
+    VAR r = RANKX ( ALL ( dim_state[state] ), [2W Penetration FY2024], , DESC )
+    RETURN IF ( NOT ISBLANK ( v ) && r <= 5, v )
+
+// Format: 0.00%   Folder: 6 Dashboard
+Q2 Top 5 States 4W Penetration FY2024 =
+    VAR v = [4W Penetration FY2024]
+    VAR r = RANKX ( ALL ( dim_state[state] ), [4W Penetration FY2024], , DESC )
+    RETURN IF ( NOT ISBLANK ( v ) && r <= 5, v )
+
+// Format: 0.00%   Folder: 6 Dashboard
+Q3 Declined Penetration FY2022 =
+    IF ( [Penetration Change FY22-24] < 0, [Penetration FY2022] )
+
+// Format: 0.00%   Folder: 6 Dashboard
+Q3 Declined Penetration FY2024 =
+    IF ( [Penetration Change FY22-24] < 0, [Penetration FY2024] )
+
+// Format: +0.00%;-0.00%;0.00%   Folder: 6 Dashboard
+Q3 Declined Change =
+    IF ( [Penetration Change FY22-24] < 0, [Penetration Change FY22-24] )
+
+// Format: #,0   Folder: 6 Dashboard
+Q5 EV Sold FY2024 (Delhi, Karnataka) =
+    CALCULATE ( [EV Sold FY2024], KEEPFILTERS ( dim_state[state] IN { "Delhi", "Karnataka" } ) )
+
+// Format: 0.00%   Folder: 6 Dashboard
+Q5 Penetration FY2024 (Delhi, Karnataka) =
+    CALCULATE ( [Penetration FY2024], KEEPFILTERS ( dim_state[state] IN { "Delhi", "Karnataka" } ) )
+
+// Format: 0.0%   Folder: 6 Dashboard
+Q7 Top 10 States Total Vehicles CAGR =
+    VAR v = [Total Vehicles CAGR FY22-24]
+    VAR r = RANKX ( ALL ( dim_state[state] ), [Total Vehicles CAGR FY22-24], , DESC )
+    RETURN IF ( NOT ISBLANK ( v ) && r <= 10, v )
+
+// Format: 0   Folder: 6 Dashboard
+Top 10 Penetration Rank FY2024 =
+    RANKX ( ALL ( dim_state[state] ), [Penetration FY2024], , DESC )
+
+// Format: 0.00%   Folder: 6 Dashboard
+Q9 Penetration FY2024 (Top 10) =
+    IF ( HASONEVALUE ( dim_state[state] ) && [Top 10 Penetration Rank FY2024] <= 10, [Penetration FY2024] )
+
+// Format: 0.0%   Folder: 6 Dashboard
+Q9 EV CAGR FY22-24 (Top 10) =
+    IF ( HASONEVALUE ( dim_state[state] ) && [Top 10 Penetration Rank FY2024] <= 10, [EV CAGR FY22-24] )
+
+// Format: #,0   Folder: 6 Dashboard
+Q9 Projected EV Sales FY2030 (Top 10) =
+    IF ( HASONEVALUE ( dim_state[state] ) && [Top 10 Penetration Rank FY2024] <= 10, [Projected EV Sales FY2030] )
+
 // ===== Table: fact_maker_sales =====
 
 // Format: #,0   Folder: 5 Makers
@@ -135,3 +197,63 @@ Maker CAGR FY22-24 =
 // Format: 0.0%   Folder: 5 Makers
 Maker Market Share % =
     DIVIDE ( [Maker EV Sold], CALCULATE ( [Maker EV Sold], REMOVEFILTERS ( dim_maker ) ) )
+
+// Format: #,0   Folder: 6 Dashboard
+2W Maker Sales FY2023 =
+    CALCULATE ( [Maker EV Sold], dim_date[fiscal_year] = 2023, dim_vehicle_category[vehicle_category] = "2-Wheelers", KEEPFILTERS ( dim_maker[maker] <> "Others" ) )
+
+// Format: #,0   Folder: 6 Dashboard
+2W Maker Sales FY2024 =
+    CALCULATE ( [Maker EV Sold], dim_date[fiscal_year] = 2024, dim_vehicle_category[vehicle_category] = "2-Wheelers", KEEPFILTERS ( dim_maker[maker] <> "Others" ) )
+
+// Format: #,0   Folder: 6 Dashboard
+Q1 Top 3 2W Makers FY2023 =
+    VAR v = [2W Maker Sales FY2023]
+    VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [2W Maker Sales FY2023] > 0 ), [2W Maker Sales FY2023], , DESC )
+    RETURN IF ( v > 0 && r <= 3, v )
+
+// Format: #,0   Folder: 6 Dashboard
+Q1 Bottom 3 2W Makers FY2023 =
+    VAR v = [2W Maker Sales FY2023]
+    VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [2W Maker Sales FY2023] > 0 ), [2W Maker Sales FY2023], , ASC )
+    RETURN IF ( v > 0 && r <= 3, v )
+
+// Format: #,0   Folder: 6 Dashboard
+Q1 Top 3 2W Makers FY2024 =
+    VAR v = [2W Maker Sales FY2024]
+    VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [2W Maker Sales FY2024] > 0 ), [2W Maker Sales FY2024], , DESC )
+    RETURN IF ( v > 0 && r <= 3, v )
+
+// Format: #,0   Folder: 6 Dashboard
+Q1 Bottom 3 2W Makers FY2024 =
+    VAR v = [2W Maker Sales FY2024]
+    VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [2W Maker Sales FY2024] > 0 ), [2W Maker Sales FY2024], , ASC )
+    RETURN IF ( v > 0 && r <= 3, v )
+
+// Format: #,0   Folder: 6 Dashboard
+4W Maker Sales All Years =
+    CALCULATE ( [Maker EV Sold], REMOVEFILTERS ( dim_date ), dim_vehicle_category[vehicle_category] = "4-Wheelers" )
+
+// Format: #,0   Folder: 6 Dashboard
+Q4 Top 5 4W Makers Sales =
+    VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [4W Maker Sales All Years] > 0 ), [4W Maker Sales All Years], , DESC )
+    VAR keep = HASONEVALUE ( dim_maker[maker] ) && [4W Maker Sales All Years] > 0 && r <= 5
+    RETURN IF ( keep, CALCULATE ( [Maker EV Sold], dim_vehicle_category[vehicle_category] = "4-Wheelers" ) )
+
+// Format: 0.0%   Folder: 6 Dashboard
+Q6 Top 5 4W Makers CAGR FY22-24 =
+    VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [4W Maker Sales All Years] > 0 ), [4W Maker Sales All Years], , DESC )
+    VAR keep = HASONEVALUE ( dim_maker[maker] ) && [4W Maker Sales All Years] > 0 && r <= 5
+    RETURN IF ( keep, [Maker CAGR FY22-24] )
+
+// Format: #,0   Folder: 6 Dashboard
+Q6 Top 5 4W Makers Units FY2022 =
+    VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [4W Maker Sales All Years] > 0 ), [4W Maker Sales All Years], , DESC )
+    VAR keep = HASONEVALUE ( dim_maker[maker] ) && [4W Maker Sales All Years] > 0 && r <= 5
+    RETURN IF ( keep, [Maker EV Sold FY2022] )
+
+// Format: #,0   Folder: 6 Dashboard
+Q6 Top 5 4W Makers Units FY2024 =
+    VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [4W Maker Sales All Years] > 0 ), [4W Maker Sales All Years], , DESC )
+    VAR keep = HASONEVALUE ( dim_maker[maker] ) && [4W Maker Sales All Years] > 0 && r <= 5
+    RETURN IF ( keep, [Maker EV Sold FY2024] )

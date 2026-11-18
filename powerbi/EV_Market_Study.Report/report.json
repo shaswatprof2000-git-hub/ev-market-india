@@ -10,7 +10,89 @@
       "height": 720.0,
       "name": "ReportSection0",
       "ordinal": 0,
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "x": 20.0,
+          "y": 10.0,
+          "z": 0.0,
+          "width": 1020.0,
+          "height": 50.0,
+          "config": "{\"name\": \"159c805877097ad0ce4f\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 10, \"z\": 0, \"width\": 1020, \"height\": 50, \"tabOrder\": 0}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"India EV Market Study | FY2022-FY2024 | Source: Vahan\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 70.0,
+          "z": 1000.0,
+          "width": 245.0,
+          "height": 110.0,
+          "config": "{\"name\": \"ca76c3bdde041e8689cd\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 70, \"z\": 1000, \"width\": 245, \"height\": 110, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"fact_state_sales.EV Sold\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"EV Sold\"}, \"Name\": \"fact_state_sales.EV Sold\", \"NativeReferenceName\": \"EV Sold\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'EV units sold'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 275.0,
+          "y": 70.0,
+          "z": 2000.0,
+          "width": 245.0,
+          "height": 110.0,
+          "config": "{\"name\": \"c86612fb5465baeb7f67\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 275, \"y\": 70, \"z\": 2000, \"width\": 245, \"height\": 110, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"fact_state_sales.Total Vehicles Sold\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Total Vehicles Sold\"}, \"Name\": \"fact_state_sales.Total Vehicles Sold\", \"NativeReferenceName\": \"Total Vehicles Sold\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Total vehicles sold'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 530.0,
+          "y": 70.0,
+          "z": 3000.0,
+          "width": 245.0,
+          "height": 110.0,
+          "config": "{\"name\": \"19202ec00a6308099a16\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 530, \"y\": 70, \"z\": 3000, \"width\": 245, \"height\": 110, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"fact_state_sales.EV Penetration %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"EV Penetration %\"}, \"Name\": \"fact_state_sales.EV Penetration %\", \"NativeReferenceName\": \"EV Penetration %\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'EV penetration'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 785.0,
+          "y": 70.0,
+          "z": 4000.0,
+          "width": 245.0,
+          "height": 110.0,
+          "config": "{\"name\": \"9f359ce7ba11ec14d445\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 785, \"y\": 70, \"z\": 4000, \"width\": 245, \"height\": 110, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"fact_state_sales.EV CAGR FY22-24\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"EV CAGR FY22-24\"}, \"Name\": \"fact_state_sales.EV CAGR FY22-24\", \"NativeReferenceName\": \"EV CAGR FY22-24\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'EV CAGR FY22-24'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1060.0,
+          "y": 70.0,
+          "z": 5000.0,
+          "width": 200.0,
+          "height": 140.0,
+          "config": "{\"name\": \"d1f57fa7cf1f0f9a9585\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1060, \"y\": 70, \"z\": 5000, \"width\": 200, \"height\": 140, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_date.fy_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fy_label\"}, \"Name\": \"dim_date.fy_label\", \"NativeReferenceName\": \"fy_label\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Fiscal year'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1060.0,
+          "y": 220.0,
+          "z": 6000.0,
+          "width": 200.0,
+          "height": 110.0,
+          "config": "{\"name\": \"e2435196ef7b6e738792\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1060, \"y\": 220, \"z\": 6000, \"width\": 200, \"height\": 110, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_vehicle_category.vehicle_category\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"c\", \"Entity\": \"dim_vehicle_category\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"vehicle_category\"}, \"Name\": \"dim_vehicle_category.vehicle_category\", \"NativeReferenceName\": \"vehicle_category\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Category'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 195.0,
+          "z": 7000.0,
+          "width": 1020.0,
+          "height": 255.0,
+          "config": "{\"name\": \"f860637b05af199d4d16\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 195, \"z\": 7000, \"width\": 1020, \"height\": 255, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_date.month_year\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_state_sales.EV Sold\"}], \"Series\": [{\"queryRef\": \"dim_vehicle_category.vehicle_category\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_date\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}, {\"Name\": \"c\", \"Entity\": \"dim_vehicle_category\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"month_year\"}, \"Name\": \"dim_date.month_year\", \"NativeReferenceName\": \"month_year\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"EV Sold\"}, \"Name\": \"fact_state_sales.EV Sold\", \"NativeReferenceName\": \"EV Sold\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"vehicle_category\"}, \"Name\": \"dim_vehicle_category.vehicle_category\", \"NativeReferenceName\": \"vehicle_category\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"month_year\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Monthly EV units sold'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 460.0,
+          "z": 8000.0,
+          "width": 1020.0,
+          "height": 250.0,
+          "config": "{\"name\": \"75b3279bd10423d2d69b\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 460, \"z\": 8000, \"width\": 1020, \"height\": 250, \"tabOrder\": 8000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_date.month_year\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_state_sales.EV Penetration %\"}], \"Series\": [{\"queryRef\": \"dim_vehicle_category.vehicle_category\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_date\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}, {\"Name\": \"c\", \"Entity\": \"dim_vehicle_category\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"month_year\"}, \"Name\": \"dim_date.month_year\", \"NativeReferenceName\": \"month_year\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"EV Penetration %\"}, \"Name\": \"fact_state_sales.EV Penetration %\", \"NativeReferenceName\": \"EV Penetration %\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"vehicle_category\"}, \"Name\": \"dim_vehicle_category.vehicle_category\", \"NativeReferenceName\": \"vehicle_category\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"month_year\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Monthly EV penetration %'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
       "width": 1280.0
     },
     {
@@ -21,7 +103,80 @@
       "height": 720.0,
       "name": "ReportSection1",
       "ordinal": 1,
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "x": 20.0,
+          "y": 10.0,
+          "z": 0.0,
+          "width": 1240.0,
+          "height": 50.0,
+          "config": "{\"name\": \"5eff9fbd5e7aaa729e18\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 10, \"z\": 0, \"width\": 1240, \"height\": 50, \"tabOrder\": 0}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Makers: who leads, who's growing (Q1, Q4, Q6)\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 70.0,
+          "z": 1000.0,
+          "width": 300.0,
+          "height": 210.0,
+          "config": "{\"name\": \"f54b21c327202c9ce070\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 70, \"z\": 1000, \"width\": 300, \"height\": 210, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_maker.maker\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_maker_sales.Q1 Top 3 2W Makers FY2023\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"k\", \"Entity\": \"dim_maker\", \"Type\": 0}, {\"Name\": \"m\", \"Entity\": \"fact_maker_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"k\"}}, \"Property\": \"maker\"}, \"Name\": \"dim_maker.maker\", \"NativeReferenceName\": \"maker\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q1 Top 3 2W Makers FY2023\"}, \"Name\": \"fact_maker_sales.Q1 Top 3 2W Makers FY2023\", \"NativeReferenceName\": \"Q1 Top 3 2W Makers FY2023\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q1 Top 3 2W Makers FY2023\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q1 Top 3 2W makers FY2023'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 290.0,
+          "z": 2000.0,
+          "width": 300.0,
+          "height": 210.0,
+          "config": "{\"name\": \"22521446068c675331b4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 290, \"z\": 2000, \"width\": 300, \"height\": 210, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_maker.maker\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_maker_sales.Q1 Top 3 2W Makers FY2024\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"k\", \"Entity\": \"dim_maker\", \"Type\": 0}, {\"Name\": \"m\", \"Entity\": \"fact_maker_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"k\"}}, \"Property\": \"maker\"}, \"Name\": \"dim_maker.maker\", \"NativeReferenceName\": \"maker\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q1 Top 3 2W Makers FY2024\"}, \"Name\": \"fact_maker_sales.Q1 Top 3 2W Makers FY2024\", \"NativeReferenceName\": \"Q1 Top 3 2W Makers FY2024\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q1 Top 3 2W Makers FY2024\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q1 Top 3 2W makers FY2024'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 330.0,
+          "y": 70.0,
+          "z": 3000.0,
+          "width": 300.0,
+          "height": 210.0,
+          "config": "{\"name\": \"acebdf48de7207f61374\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 330, \"y\": 70, \"z\": 3000, \"width\": 300, \"height\": 210, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_maker.maker\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_maker_sales.Q1 Bottom 3 2W Makers FY2023\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"k\", \"Entity\": \"dim_maker\", \"Type\": 0}, {\"Name\": \"m\", \"Entity\": \"fact_maker_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"k\"}}, \"Property\": \"maker\"}, \"Name\": \"dim_maker.maker\", \"NativeReferenceName\": \"maker\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q1 Bottom 3 2W Makers FY2023\"}, \"Name\": \"fact_maker_sales.Q1 Bottom 3 2W Makers FY2023\", \"NativeReferenceName\": \"Q1 Bottom 3 2W Makers FY2023\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q1 Bottom 3 2W Makers FY2023\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q1 Bottom 3 2W makers FY2023'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 330.0,
+          "y": 290.0,
+          "z": 4000.0,
+          "width": 300.0,
+          "height": 210.0,
+          "config": "{\"name\": \"318dc5dc86c8810cb0d2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 330, \"y\": 290, \"z\": 4000, \"width\": 300, \"height\": 210, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_maker.maker\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_maker_sales.Q1 Bottom 3 2W Makers FY2024\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"k\", \"Entity\": \"dim_maker\", \"Type\": 0}, {\"Name\": \"m\", \"Entity\": \"fact_maker_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"k\"}}, \"Property\": \"maker\"}, \"Name\": \"dim_maker.maker\", \"NativeReferenceName\": \"maker\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q1 Bottom 3 2W Makers FY2024\"}, \"Name\": \"fact_maker_sales.Q1 Bottom 3 2W Makers FY2024\", \"NativeReferenceName\": \"Q1 Bottom 3 2W Makers FY2024\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q1 Bottom 3 2W Makers FY2024\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q1 Bottom 3 2W makers FY2024'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650.0,
+          "y": 70.0,
+          "z": 5000.0,
+          "width": 610.0,
+          "height": 430.0,
+          "config": "{\"name\": \"9e8025e85753184753d9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 70, \"z\": 5000, \"width\": 610, \"height\": 430, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_date.fy_quarter\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_maker_sales.Q4 Top 5 4W Makers Sales\"}], \"Series\": [{\"queryRef\": \"dim_maker.maker\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_date\", \"Type\": 0}, {\"Name\": \"m\", \"Entity\": \"fact_maker_sales\", \"Type\": 0}, {\"Name\": \"k\", \"Entity\": \"dim_maker\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fy_quarter\"}, \"Name\": \"dim_date.fy_quarter\", \"NativeReferenceName\": \"fy_quarter\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q4 Top 5 4W Makers Sales\"}, \"Name\": \"fact_maker_sales.Q4 Top 5 4W Makers Sales\", \"NativeReferenceName\": \"Q4 Top 5 4W Makers Sales\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"k\"}}, \"Property\": \"maker\"}, \"Name\": \"dim_maker.maker\", \"NativeReferenceName\": \"maker\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fy_quarter\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q4 Quarterly 4W EV sales, top 5 makers'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 510.0,
+          "z": 6000.0,
+          "width": 620.0,
+          "height": 200.0,
+          "config": "{\"name\": \"0d673b015fac6e84cd43\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 510, \"z\": 6000, \"width\": 620, \"height\": 200, \"tabOrder\": 6000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_maker.maker\"}, {\"queryRef\": \"fact_maker_sales.Q6 Top 5 4W Makers Units FY2022\"}, {\"queryRef\": \"fact_maker_sales.Q6 Top 5 4W Makers Units FY2024\"}, {\"queryRef\": \"fact_maker_sales.Q6 Top 5 4W Makers CAGR FY22-24\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"k\", \"Entity\": \"dim_maker\", \"Type\": 0}, {\"Name\": \"m\", \"Entity\": \"fact_maker_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"k\"}}, \"Property\": \"maker\"}, \"Name\": \"dim_maker.maker\", \"NativeReferenceName\": \"maker\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q6 Top 5 4W Makers Units FY2022\"}, \"Name\": \"fact_maker_sales.Q6 Top 5 4W Makers Units FY2022\", \"NativeReferenceName\": \"Q6 Top 5 4W Makers Units FY2022\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q6 Top 5 4W Makers Units FY2024\"}, \"Name\": \"fact_maker_sales.Q6 Top 5 4W Makers Units FY2024\", \"NativeReferenceName\": \"Q6 Top 5 4W Makers Units FY2024\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q6 Top 5 4W Makers CAGR FY22-24\"}, \"Name\": \"fact_maker_sales.Q6 Top 5 4W Makers CAGR FY22-24\", \"NativeReferenceName\": \"Q6 Top 5 4W Makers CAGR FY22-24\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q6 Top 5 4W Makers Units FY2024\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q6 CAGR of 4W units, top 5 makers'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650.0,
+          "y": 510.0,
+          "z": 7000.0,
+          "width": 610.0,
+          "height": 200.0,
+          "config": "{\"name\": \"fb9aa1baac3593b63365\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 510, \"z\": 7000, \"width\": 610, \"height\": 200, \"tabOrder\": 7000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_maker.maker\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_maker_sales.Q6 Top 5 4W Makers CAGR FY22-24\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"k\", \"Entity\": \"dim_maker\", \"Type\": 0}, {\"Name\": \"m\", \"Entity\": \"fact_maker_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"k\"}}, \"Property\": \"maker\"}, \"Name\": \"dim_maker.maker\", \"NativeReferenceName\": \"maker\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q6 Top 5 4W Makers CAGR FY22-24\"}, \"Name\": \"fact_maker_sales.Q6 Top 5 4W Makers CAGR FY22-24\", \"NativeReferenceName\": \"Q6 Top 5 4W Makers CAGR FY22-24\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"m\"}}, \"Property\": \"Q6 Top 5 4W Makers CAGR FY22-24\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q6 CAGR FY22-24'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
       "width": 1280.0
     },
     {
@@ -32,7 +187,62 @@
       "height": 720.0,
       "name": "ReportSection2",
       "ordinal": 2,
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "x": 20.0,
+          "y": 10.0,
+          "z": 0.0,
+          "width": 1240.0,
+          "height": 50.0,
+          "config": "{\"name\": \"e7c4ce10941156bcedd4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 10, \"z\": 0, \"width\": 1240, \"height\": 50, \"tabOrder\": 0}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"States: where EVs are winning (Q2, Q3, Q5, Q7)\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 70.0,
+          "z": 1000.0,
+          "width": 400.0,
+          "height": 300.0,
+          "config": "{\"name\": \"6e8b636a0e493e170cd7\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 70, \"z\": 1000, \"width\": 400, \"height\": 300, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_state.state\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_state_sales.Q2 Top 5 States 2W Penetration FY2024\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"s\", \"Entity\": \"dim_state\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"s\"}}, \"Property\": \"state\"}, \"Name\": \"dim_state.state\", \"NativeReferenceName\": \"state\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q2 Top 5 States 2W Penetration FY2024\"}, \"Name\": \"fact_state_sales.Q2 Top 5 States 2W Penetration FY2024\", \"NativeReferenceName\": \"Q2 Top 5 States 2W Penetration FY2024\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q2 Top 5 States 2W Penetration FY2024\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q2 Top 5 states, 2W EV penetration FY2024'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 430.0,
+          "y": 70.0,
+          "z": 2000.0,
+          "width": 400.0,
+          "height": 300.0,
+          "config": "{\"name\": \"e8fea9164aec5e4bbcdf\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 430, \"y\": 70, \"z\": 2000, \"width\": 400, \"height\": 300, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_state.state\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_state_sales.Q2 Top 5 States 4W Penetration FY2024\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"s\", \"Entity\": \"dim_state\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"s\"}}, \"Property\": \"state\"}, \"Name\": \"dim_state.state\", \"NativeReferenceName\": \"state\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q2 Top 5 States 4W Penetration FY2024\"}, \"Name\": \"fact_state_sales.Q2 Top 5 States 4W Penetration FY2024\", \"NativeReferenceName\": \"Q2 Top 5 States 4W Penetration FY2024\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q2 Top 5 States 4W Penetration FY2024\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q2 Top 5 states, 4W EV penetration FY2024'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 840.0,
+          "y": 70.0,
+          "z": 3000.0,
+          "width": 420.0,
+          "height": 300.0,
+          "config": "{\"name\": \"b0cd78594927f5da2a99\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 840, \"y\": 70, \"z\": 3000, \"width\": 420, \"height\": 300, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_state.state\"}, {\"queryRef\": \"dim_vehicle_category.vehicle_category\"}, {\"queryRef\": \"fact_state_sales.Q5 EV Sold FY2024 (Delhi, Karnataka)\"}, {\"queryRef\": \"fact_state_sales.Q5 Penetration FY2024 (Delhi, Karnataka)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"s\", \"Entity\": \"dim_state\", \"Type\": 0}, {\"Name\": \"c\", \"Entity\": \"dim_vehicle_category\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"s\"}}, \"Property\": \"state\"}, \"Name\": \"dim_state.state\", \"NativeReferenceName\": \"state\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"vehicle_category\"}, \"Name\": \"dim_vehicle_category.vehicle_category\", \"NativeReferenceName\": \"vehicle_category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q5 EV Sold FY2024 (Delhi, Karnataka)\"}, \"Name\": \"fact_state_sales.Q5 EV Sold FY2024 (Delhi, Karnataka)\", \"NativeReferenceName\": \"Q5 EV Sold FY2024 (Delhi, Karnataka)\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q5 Penetration FY2024 (Delhi, Karnataka)\"}, \"Name\": \"fact_state_sales.Q5 Penetration FY2024 (Delhi, Karnataka)\", \"NativeReferenceName\": \"Q5 Penetration FY2024 (Delhi, Karnataka)\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"s\"}}, \"Property\": \"state\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q5 Delhi vs Karnataka, FY2024'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 380.0,
+          "z": 4000.0,
+          "width": 500.0,
+          "height": 330.0,
+          "config": "{\"name\": \"04a144793013482df2b4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 380, \"z\": 4000, \"width\": 500, \"height\": 330, \"tabOrder\": 4000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_state.state\"}, {\"queryRef\": \"dim_vehicle_category.vehicle_category\"}, {\"queryRef\": \"fact_state_sales.Q3 Declined Penetration FY2022\"}, {\"queryRef\": \"fact_state_sales.Q3 Declined Penetration FY2024\"}, {\"queryRef\": \"fact_state_sales.Q3 Declined Change\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"s\", \"Entity\": \"dim_state\", \"Type\": 0}, {\"Name\": \"c\", \"Entity\": \"dim_vehicle_category\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"s\"}}, \"Property\": \"state\"}, \"Name\": \"dim_state.state\", \"NativeReferenceName\": \"state\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"vehicle_category\"}, \"Name\": \"dim_vehicle_category.vehicle_category\", \"NativeReferenceName\": \"vehicle_category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q3 Declined Penetration FY2022\"}, \"Name\": \"fact_state_sales.Q3 Declined Penetration FY2022\", \"NativeReferenceName\": \"Q3 Declined Penetration FY2022\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q3 Declined Penetration FY2024\"}, \"Name\": \"fact_state_sales.Q3 Declined Penetration FY2024\", \"NativeReferenceName\": \"Q3 Declined Penetration FY2024\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q3 Declined Change\"}, \"Name\": \"fact_state_sales.Q3 Declined Change\", \"NativeReferenceName\": \"Q3 Declined Change\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q3 Declined Change\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q3 Declining EV penetration, FY2022 to FY2024'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 530.0,
+          "y": 380.0,
+          "z": 5000.0,
+          "width": 730.0,
+          "height": 330.0,
+          "config": "{\"name\": \"694c99774d894373e1ca\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 530, \"y\": 380, \"z\": 5000, \"width\": 730, \"height\": 330, \"tabOrder\": 5000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_state.state\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_state_sales.Q7 Top 10 States Total Vehicles CAGR\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"s\", \"Entity\": \"dim_state\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"s\"}}, \"Property\": \"state\"}, \"Name\": \"dim_state.state\", \"NativeReferenceName\": \"state\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q7 Top 10 States Total Vehicles CAGR\"}, \"Name\": \"fact_state_sales.Q7 Top 10 States Total Vehicles CAGR\", \"NativeReferenceName\": \"Q7 Top 10 States Total Vehicles CAGR\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q7 Top 10 States Total Vehicles CAGR\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q7 Top 10 states by CAGR in total vehicles sold, FY22-24'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
       "width": 1280.0
     },
     {
@@ -43,7 +253,35 @@
       "height": 720.0,
       "name": "ReportSection3",
       "ordinal": 3,
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "x": 20.0,
+          "y": 10.0,
+          "z": 0.0,
+          "width": 1240.0,
+          "height": 50.0,
+          "config": "{\"name\": \"21c4a47e02d22b7c92b6\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 10, \"z\": 0, \"width\": 1240, \"height\": 50, \"tabOrder\": 0}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Seasonality: peak and low months (Q8)\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 70.0,
+          "z": 1000.0,
+          "width": 1240.0,
+          "height": 330.0,
+          "config": "{\"name\": \"7021472550fe5c79cfe8\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 70, \"z\": 1000, \"width\": 1240, \"height\": 330, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_date.month_short\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_state_sales.EV Sold\"}], \"Series\": [{\"queryRef\": \"dim_date.fy_label\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_date\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"month_short\"}, \"Name\": \"dim_date.month_short\", \"NativeReferenceName\": \"month_short\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"EV Sold\"}, \"Name\": \"fact_state_sales.EV Sold\", \"NativeReferenceName\": \"EV Sold\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"fy_label\"}, \"Name\": \"dim_date.fy_label\", \"NativeReferenceName\": \"fy_label\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"month_short\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q8 EV units sold by month (Apr to Mar), by fiscal year'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 410.0,
+          "z": 2000.0,
+          "width": 1240.0,
+          "height": 300.0,
+          "config": "{\"name\": \"aa31be16b50cdf999b0c\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 410, \"z\": 2000, \"width\": 1240, \"height\": 300, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_date.month_short\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_state_sales.EV Share of 3-Year Sales %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"d\", \"Entity\": \"dim_date\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"month_short\"}, \"Name\": \"dim_date.month_short\", \"NativeReferenceName\": \"month_short\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"EV Share of 3-Year Sales %\"}, \"Name\": \"fact_state_sales.EV Share of 3-Year Sales %\", \"NativeReferenceName\": \"EV Share of 3-Year Sales %\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"d\"}}, \"Property\": \"month_short\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q8 Share of 3-year EV sales by month'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
       "width": 1280.0
     },
     {
@@ -54,7 +292,44 @@
       "height": 720.0,
       "name": "ReportSection4",
       "ordinal": 4,
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "x": 20.0,
+          "y": 10.0,
+          "z": 0.0,
+          "width": 1240.0,
+          "height": 50.0,
+          "config": "{\"name\": \"2bc26246b3ce8605ef73\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 10, \"z\": 0, \"width\": 1240, \"height\": 50, \"tabOrder\": 0}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Projections and revenue (Q9, Q10)\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"18pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 70.0,
+          "z": 1000.0,
+          "width": 620.0,
+          "height": 400.0,
+          "config": "{\"name\": \"f66038ec7f821e0bb8a9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 70, \"z\": 1000, \"width\": 620, \"height\": 400, \"tabOrder\": 1000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_state.state\"}, {\"queryRef\": \"fact_state_sales.Q9 Penetration FY2024 (Top 10)\"}, {\"queryRef\": \"fact_state_sales.Q9 EV CAGR FY22-24 (Top 10)\"}, {\"queryRef\": \"fact_state_sales.Q9 Projected EV Sales FY2030 (Top 10)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"s\", \"Entity\": \"dim_state\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"s\"}}, \"Property\": \"state\"}, \"Name\": \"dim_state.state\", \"NativeReferenceName\": \"state\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q9 Penetration FY2024 (Top 10)\"}, \"Name\": \"fact_state_sales.Q9 Penetration FY2024 (Top 10)\", \"NativeReferenceName\": \"Q9 Penetration FY2024 (Top 10)\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q9 EV CAGR FY22-24 (Top 10)\"}, \"Name\": \"fact_state_sales.Q9 EV CAGR FY22-24 (Top 10)\", \"NativeReferenceName\": \"Q9 EV CAGR FY22-24 (Top 10)\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q9 Projected EV Sales FY2030 (Top 10)\"}, \"Name\": \"fact_state_sales.Q9 Projected EV Sales FY2030 (Top 10)\", \"NativeReferenceName\": \"Q9 Projected EV Sales FY2030 (Top 10)\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q9 Penetration FY2024 (Top 10)\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q9 Top 10 states by FY2024 penetration: projected FY2030 EV sales'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 650.0,
+          "y": 70.0,
+          "z": 2000.0,
+          "width": 610.0,
+          "height": 400.0,
+          "config": "{\"name\": \"11c455e2bdc5484105c7\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 650, \"y\": 70, \"z\": 2000, \"width\": 610, \"height\": 400, \"tabOrder\": 2000}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_state.state\", \"active\": true}], \"Y\": [{\"queryRef\": \"fact_state_sales.Q9 Projected EV Sales FY2030 (Top 10)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"s\", \"Entity\": \"dim_state\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"s\"}}, \"Property\": \"state\"}, \"Name\": \"dim_state.state\", \"NativeReferenceName\": \"state\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q9 Projected EV Sales FY2030 (Top 10)\"}, \"Name\": \"fact_state_sales.Q9 Projected EV Sales FY2030 (Top 10)\", \"NativeReferenceName\": \"Q9 Projected EV Sales FY2030 (Top 10)\"}], \"OrderBy\": [{\"Direction\": 2, \"Expression\": {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Q9 Projected EV Sales FY2030 (Top 10)\"}}}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q9 Projected FY2030 EV units (CAGR-based)'\"}}}}}]}, \"objects\": {\"labels\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20.0,
+          "y": 480.0,
+          "z": 3000.0,
+          "width": 1240.0,
+          "height": 230.0,
+          "config": "{\"name\": \"c0c3197ff7b8f8dc3ce9\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 480, \"z\": 3000, \"width\": 1240, \"height\": 230, \"tabOrder\": 3000}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_vehicle_category.vehicle_category\"}, {\"queryRef\": \"fact_state_sales.Revenue FY2022 (Rs Cr)\"}, {\"queryRef\": \"fact_state_sales.Revenue FY2023 (Rs Cr)\"}, {\"queryRef\": \"fact_state_sales.Revenue FY2024 (Rs Cr)\"}, {\"queryRef\": \"fact_state_sales.Revenue Growth FY22-24\"}, {\"queryRef\": \"fact_state_sales.Revenue Growth FY23-24\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"c\", \"Entity\": \"dim_vehicle_category\", \"Type\": 0}, {\"Name\": \"f\", \"Entity\": \"fact_state_sales\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"c\"}}, \"Property\": \"vehicle_category\"}, \"Name\": \"dim_vehicle_category.vehicle_category\", \"NativeReferenceName\": \"vehicle_category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Revenue FY2022 (Rs Cr)\"}, \"Name\": \"fact_state_sales.Revenue FY2022 (Rs Cr)\", \"NativeReferenceName\": \"Revenue FY2022 (Rs Cr)\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Revenue FY2023 (Rs Cr)\"}, \"Name\": \"fact_state_sales.Revenue FY2023 (Rs Cr)\", \"NativeReferenceName\": \"Revenue FY2023 (Rs Cr)\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Revenue FY2024 (Rs Cr)\"}, \"Name\": \"fact_state_sales.Revenue FY2024 (Rs Cr)\", \"NativeReferenceName\": \"Revenue FY2024 (Rs Cr)\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Revenue Growth FY22-24\"}, \"Name\": \"fact_state_sales.Revenue Growth FY22-24\", \"NativeReferenceName\": \"Revenue Growth FY22-24\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"f\"}}, \"Property\": \"Revenue Growth FY23-24\"}, \"Name\": \"fact_state_sales.Revenue Growth FY23-24\", \"NativeReferenceName\": \"Revenue Growth FY23-24\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Q10 EV revenue (Rs crore; avg price 2W Rs 85,000, 4W Rs 15 lakh)'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ],
       "width": 1280.0
     }
   ]

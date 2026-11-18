@@ -6,6 +6,12 @@ Data source: Vahan (Ministry of Road Transport & Highways) monthly registrations
 
 **Pipeline:** raw CSVs → Python cleaning → star-schema CSVs → Power BI dashboard.
 
+- **View the dashboard in your browser:** [DASHBOARD.md](DASHBOARD.md) (charts + answers to Q1–Q10)
+- **Open it in Power BI:** download the repo, open `powerbi/EV_Market_Study.pbip`, click Refresh.
+  Data loads from this repo, no setup. Details: [POWERBI_GUIDE.md](POWERBI_GUIDE.md)
+
+![EV sales and penetration, FY2022-FY2024](dashboard/00_overview.png)
+
 ## Headline numbers (cleaned data)
 
 | Fiscal year | EV units sold | Total vehicles sold | EV penetration |
@@ -24,11 +30,14 @@ data/cleaned/        Power BI-ready star schema (6 CSVs)
 scripts/
   clean_data.py      cleaning + data-quality checks
   analysis.py        answers to the 10 primary questions
+  build_dashboard.py charts + DASHBOARD.md (renders on GitHub)
   build_powerbi.py   generates the Power BI project + measures.dax
 reports/             DATA_CLEANING_REPORT.md, data_quality_log.csv
 analysis/            PRIMARY_ANSWERS.md + one CSV per question
-powerbi/             EV_Market_Study.pbip (open in Power BI Desktop), measures.dax
-POWERBI_GUIDE.md     how to open / build the dashboard
+dashboard/           chart images used by DASHBOARD.md
+powerbi/             EV_Market_Study.pbip (5-page dashboard), measures.dax
+DASHBOARD.md         the dashboard, viewable on GitHub
+POWERBI_GUIDE.md     how to open / build the Power BI dashboard
 RUN_ON_MAC.md        terminal commands (Mac / VS Code)
 ```
 
@@ -39,6 +48,7 @@ python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\ac
 pip install -r requirements.txt
 python scripts/clean_data.py
 python scripts/analysis.py
+python scripts/build_dashboard.py
 python scripts/build_powerbi.py
 ```
 

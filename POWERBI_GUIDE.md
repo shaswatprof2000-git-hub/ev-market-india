@@ -1,37 +1,44 @@
 # Power BI Guide (for Windows + Power BI Desktop)
 
-Everything is cleaned already. The data lives in `data/cleaned/`; the model is in `powerbi/`.
+Everything is cleaned and built. The dashboard pulls its data straight from this GitHub
+repo, so it works from any folder with no path changes. You need internet access the first
+time you refresh.
 
 ## 1. Get the files
 
-Clone the repo into `C:\` so the default data path works without changes:
+Download: **https://github.com/shaswatprof2000-git-hub/ev-market-india/archive/refs/heads/main.zip**
+and extract it anywhere (Desktop is fine). Or with git:
 
 ```powershell
-cd C:\
 git clone https://github.com/shaswatprof2000-git-hub/ev-market-india.git
 ```
 
-(No git? On GitHub click **Code → Download ZIP** and extract so the folder is `C:\ev-market-india`.)
+## 2. Option A: open the ready-made dashboard (recommended)
 
-## 2. Option A: open the ready-made project (recommended)
-
-1. Double-click `C:\ev-market-india\powerbi\EV_Market_Study.pbip`.
+1. Open the `powerbi` folder and double-click **`EV_Market_Study.pbip`**.
    If Power BI won't open `.pbip` files, turn on **File → Options and settings → Options →
-   Preview features → Power BI Project (.pbip) save option**, restart, and try again.
-2. If you cloned somewhere other than `C:\ev-market-india`: **Home → Transform data → Edit
-   parameters → DataFolder** and set it to your `...\data\cleaned\` folder. It must end in `\`.
-3. **Home → Refresh.**
-4. Check the numbers (section 5), then build visuals (section 4).
-5. To share a single file: **File → Save as → .pbix**.
+   Preview features → Power BI Project (.pbip) save option**, restart Power BI, and try again.
+2. Click **Refresh**. On the first refresh Power BI asks how to connect to
+   `raw.githubusercontent.com`: choose **Anonymous → Connect**.
+3. The 5 pages fill in with the visuals already built (Q1–Q10). Compare a few numbers with
+   section 5 below.
+4. To send one file back: **File → Save as → Power BI file (.pbix)**.
+
+Offline? **Home → Transform data → Edit parameters → DataFolder** and set it to the local
+`...\data\cleaned\` folder from the zip. It must end in `\`.
 
 What's already in the model:
 - 6 tables, 6 relationships (one-to-many, single direction)
 - `dim_date` marked as the date table; months sort Apr→Mar; quarters sort chronologically
 - `dim_state[state_map_name]` + `country` set as geography for map visuals
-- 32 DAX measures in display folders (Volume, Penetration, Growth, Revenue, Makers)
-- 5 blank report pages named after the questions they answer
+- 57 DAX measures in display folders (Volume, Penetration, Growth, Revenue, Makers, Dashboard)
+- 5 report pages with 30 visuals. The `Q…` measures in the *6 Dashboard* folder return values only
+  for the rows a question asks for (top 5, bottom 3, declined states…), so the visuals need no filters.
 
-## 3. Option B: build manually (if the .pbip won't open)
+If the dashboard pages show errors but the data loaded, open **`EV_Market_Study_EmptyReport.pbip`**
+instead. It uses the same model with blank pages; build the visuals from section 4.
+
+## 3. Option B: build manually (if neither .pbip opens)
 
 1. **Get data → Text/CSV** and load all 6 files from `data/cleaned/`. Check the types:
    `date` = Date, sales columns = Whole number, everything else as detected.
@@ -52,7 +59,7 @@ What's already in the model:
    `fy_quarter_sort`; `month_year` by `month_year_sort`.
 5. Open `powerbi/measures.dax` and create each measure on the table named in its section.
 
-## 4. Dashboard plan (one page per theme)
+## 4. Dashboard plan (what's on each page, or what to build by hand)
 
 Always use fields from the **dim_** tables for axes and slicers. Put a `dim_vehicle_category`
 slicer and an `fy_label` slicer on every page (sync slicers).

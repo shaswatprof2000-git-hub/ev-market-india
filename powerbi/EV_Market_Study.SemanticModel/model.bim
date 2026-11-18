@@ -113,7 +113,9 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(DataFolder & \"dim_date.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    FilePath = DataFolder & \"dim_date.csv\",",
+                "    Raw = if Text.StartsWith(DataFolder, \"http\") then Web.Contents(FilePath) else File.Contents(FilePath),",
+                "    Source = Csv.Document(Raw, [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
                 "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
                 "    Typed = Table.TransformColumnTypes(Promoted, {{\"date\", type date}, {\"fiscal_year\", Int64.Type}, {\"fy_label\", type text}, {\"quarter\", type text}, {\"fy_quarter\", type text}, {\"fy_quarter_sort\", Int64.Type}, {\"calendar_year\", Int64.Type}, {\"month_num\", Int64.Type}, {\"month_name\", type text}, {\"month_short\", type text}, {\"fiscal_month_num\", Int64.Type}, {\"month_year\", type text}, {\"month_year_sort\", Int64.Type}}, \"en-US\")",
                 "in",
@@ -168,7 +170,9 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(DataFolder & \"dim_state.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    FilePath = DataFolder & \"dim_state.csv\",",
+                "    Raw = if Text.StartsWith(DataFolder, \"http\") then Web.Contents(FilePath) else File.Contents(FilePath),",
+                "    Source = Csv.Document(Raw, [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
                 "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
                 "    Typed = Table.TransformColumnTypes(Promoted, {{\"state\", type text}, {\"state_map_name\", type text}, {\"region\", type text}, {\"state_type\", type text}, {\"country\", type text}}, \"en-US\")",
                 "in",
@@ -215,7 +219,9 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(DataFolder & \"dim_maker.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    FilePath = DataFolder & \"dim_maker.csv\",",
+                "    Raw = if Text.StartsWith(DataFolder, \"http\") then Web.Contents(FilePath) else File.Contents(FilePath),",
+                "    Source = Csv.Document(Raw, [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
                 "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
                 "    Typed = Table.TransformColumnTypes(Promoted, {{\"maker\", type text}, {\"maker_raw\", type text}, {\"vehicle_category\", type text}, {\"first_sale_month\", type date}}, \"en-US\")",
                 "in",
@@ -256,7 +262,9 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(DataFolder & \"dim_vehicle_category.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    FilePath = DataFolder & \"dim_vehicle_category.csv\",",
+                "    Raw = if Text.StartsWith(DataFolder, \"http\") then Web.Contents(FilePath) else File.Contents(FilePath),",
+                "    Source = Csv.Document(Raw, [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
                 "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
                 "    Typed = Table.TransformColumnTypes(Promoted, {{\"vehicle_category\", type text}, {\"category_short\", type text}, {\"avg_unit_price_inr\", Int64.Type}}, \"en-US\")",
                 "in",
@@ -341,7 +349,9 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(DataFolder & \"fact_state_sales.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    FilePath = DataFolder & \"fact_state_sales.csv\",",
+                "    Raw = if Text.StartsWith(DataFolder, \"http\") then Web.Contents(FilePath) else File.Contents(FilePath),",
+                "    Source = Csv.Document(Raw, [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
                 "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
                 "    Typed = Table.TransformColumnTypes(Promoted, {{\"date\", type date}, {\"state\", type text}, {\"vehicle_category\", type text}, {\"electric_vehicles_sold\", Int64.Type}, {\"total_vehicles_sold\", Int64.Type}, {\"non_ev_sold\", Int64.Type}, {\"total_vehicles_sold_raw\", Int64.Type}, {\"is_imputed\", type logical}, {\"dq_note\", type text}}, \"en-US\")",
                 "in",
@@ -510,6 +520,102 @@
             "expression": "DIVIDE ( [Revenue FY2024 (Rs Cr)], [Revenue FY2023 (Rs Cr)] ) - 1",
             "formatString": "0.0%",
             "displayFolder": "4 Revenue"
+          },
+          {
+            "name": "2W Penetration FY2024",
+            "expression": "CALCULATE ( [EV Penetration %], dim_date[fiscal_year] = 2024, dim_vehicle_category[vehicle_category] = \"2-Wheelers\" )",
+            "formatString": "0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "4W Penetration FY2024",
+            "expression": "CALCULATE ( [EV Penetration %], dim_date[fiscal_year] = 2024, dim_vehicle_category[vehicle_category] = \"4-Wheelers\" )",
+            "formatString": "0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q2 Top 5 States 2W Penetration FY2024",
+            "expression": [
+              "VAR v = [2W Penetration FY2024]",
+              "VAR r = RANKX ( ALL ( dim_state[state] ), [2W Penetration FY2024], , DESC )",
+              "RETURN IF ( NOT ISBLANK ( v ) && r <= 5, v )"
+            ],
+            "formatString": "0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q2 Top 5 States 4W Penetration FY2024",
+            "expression": [
+              "VAR v = [4W Penetration FY2024]",
+              "VAR r = RANKX ( ALL ( dim_state[state] ), [4W Penetration FY2024], , DESC )",
+              "RETURN IF ( NOT ISBLANK ( v ) && r <= 5, v )"
+            ],
+            "formatString": "0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q3 Declined Penetration FY2022",
+            "expression": "IF ( [Penetration Change FY22-24] < 0, [Penetration FY2022] )",
+            "formatString": "0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q3 Declined Penetration FY2024",
+            "expression": "IF ( [Penetration Change FY22-24] < 0, [Penetration FY2024] )",
+            "formatString": "0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q3 Declined Change",
+            "expression": "IF ( [Penetration Change FY22-24] < 0, [Penetration Change FY22-24] )",
+            "formatString": "+0.00%;-0.00%;0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q5 EV Sold FY2024 (Delhi, Karnataka)",
+            "expression": "CALCULATE ( [EV Sold FY2024], KEEPFILTERS ( dim_state[state] IN { \"Delhi\", \"Karnataka\" } ) )",
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q5 Penetration FY2024 (Delhi, Karnataka)",
+            "expression": "CALCULATE ( [Penetration FY2024], KEEPFILTERS ( dim_state[state] IN { \"Delhi\", \"Karnataka\" } ) )",
+            "formatString": "0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q7 Top 10 States Total Vehicles CAGR",
+            "expression": [
+              "VAR v = [Total Vehicles CAGR FY22-24]",
+              "VAR r = RANKX ( ALL ( dim_state[state] ), [Total Vehicles CAGR FY22-24], , DESC )",
+              "RETURN IF ( NOT ISBLANK ( v ) && r <= 10, v )"
+            ],
+            "formatString": "0.0%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Top 10 Penetration Rank FY2024",
+            "expression": "RANKX ( ALL ( dim_state[state] ), [Penetration FY2024], , DESC )",
+            "formatString": "0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q9 Penetration FY2024 (Top 10)",
+            "expression": "IF ( HASONEVALUE ( dim_state[state] ) && [Top 10 Penetration Rank FY2024] <= 10, [Penetration FY2024] )",
+            "formatString": "0.00%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q9 EV CAGR FY22-24 (Top 10)",
+            "expression": "IF ( HASONEVALUE ( dim_state[state] ) && [Top 10 Penetration Rank FY2024] <= 10, [EV CAGR FY22-24] )",
+            "formatString": "0.0%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q9 Projected EV Sales FY2030 (Top 10)",
+            "expression": "IF ( HASONEVALUE ( dim_state[state] ) && [Top 10 Penetration Rank FY2024] <= 10, [Projected EV Sales FY2030] )",
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
           }
         ]
       },
@@ -560,7 +666,9 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(DataFolder & \"fact_maker_sales.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    FilePath = DataFolder & \"fact_maker_sales.csv\",",
+                "    Raw = if Text.StartsWith(DataFolder, \"http\") then Web.Contents(FilePath) else File.Contents(FilePath),",
+                "    Source = Csv.Document(Raw, [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
                 "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
                 "    Typed = Table.TransformColumnTypes(Promoted, {{\"date\", type date}, {\"vehicle_category\", type text}, {\"maker\", type text}, {\"electric_vehicles_sold\", Int64.Type}, {\"is_others_bucket\", type logical}}, \"en-US\")",
                 "in",
@@ -605,6 +713,104 @@
             "expression": "DIVIDE ( [Maker EV Sold], CALCULATE ( [Maker EV Sold], REMOVEFILTERS ( dim_maker ) ) )",
             "formatString": "0.0%",
             "displayFolder": "5 Makers"
+          },
+          {
+            "name": "2W Maker Sales FY2023",
+            "expression": "CALCULATE ( [Maker EV Sold], dim_date[fiscal_year] = 2023, dim_vehicle_category[vehicle_category] = \"2-Wheelers\", KEEPFILTERS ( dim_maker[maker] <> \"Others\" ) )",
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "2W Maker Sales FY2024",
+            "expression": "CALCULATE ( [Maker EV Sold], dim_date[fiscal_year] = 2024, dim_vehicle_category[vehicle_category] = \"2-Wheelers\", KEEPFILTERS ( dim_maker[maker] <> \"Others\" ) )",
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q1 Top 3 2W Makers FY2023",
+            "expression": [
+              "VAR v = [2W Maker Sales FY2023]",
+              "VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [2W Maker Sales FY2023] > 0 ), [2W Maker Sales FY2023], , DESC )",
+              "RETURN IF ( v > 0 && r <= 3, v )"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q1 Bottom 3 2W Makers FY2023",
+            "expression": [
+              "VAR v = [2W Maker Sales FY2023]",
+              "VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [2W Maker Sales FY2023] > 0 ), [2W Maker Sales FY2023], , ASC )",
+              "RETURN IF ( v > 0 && r <= 3, v )"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q1 Top 3 2W Makers FY2024",
+            "expression": [
+              "VAR v = [2W Maker Sales FY2024]",
+              "VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [2W Maker Sales FY2024] > 0 ), [2W Maker Sales FY2024], , DESC )",
+              "RETURN IF ( v > 0 && r <= 3, v )"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q1 Bottom 3 2W Makers FY2024",
+            "expression": [
+              "VAR v = [2W Maker Sales FY2024]",
+              "VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [2W Maker Sales FY2024] > 0 ), [2W Maker Sales FY2024], , ASC )",
+              "RETURN IF ( v > 0 && r <= 3, v )"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "4W Maker Sales All Years",
+            "expression": "CALCULATE ( [Maker EV Sold], REMOVEFILTERS ( dim_date ), dim_vehicle_category[vehicle_category] = \"4-Wheelers\" )",
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q4 Top 5 4W Makers Sales",
+            "expression": [
+              "VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [4W Maker Sales All Years] > 0 ), [4W Maker Sales All Years], , DESC )",
+              "VAR keep = HASONEVALUE ( dim_maker[maker] ) && [4W Maker Sales All Years] > 0 && r <= 5",
+              "RETURN IF ( keep, CALCULATE ( [Maker EV Sold], dim_vehicle_category[vehicle_category] = \"4-Wheelers\" ) )"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q6 Top 5 4W Makers CAGR FY22-24",
+            "expression": [
+              "VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [4W Maker Sales All Years] > 0 ), [4W Maker Sales All Years], , DESC )",
+              "VAR keep = HASONEVALUE ( dim_maker[maker] ) && [4W Maker Sales All Years] > 0 && r <= 5",
+              "RETURN IF ( keep, [Maker CAGR FY22-24] )"
+            ],
+            "formatString": "0.0%",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q6 Top 5 4W Makers Units FY2022",
+            "expression": [
+              "VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [4W Maker Sales All Years] > 0 ), [4W Maker Sales All Years], , DESC )",
+              "VAR keep = HASONEVALUE ( dim_maker[maker] ) && [4W Maker Sales All Years] > 0 && r <= 5",
+              "RETURN IF ( keep, [Maker EV Sold FY2022] )"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
+          },
+          {
+            "name": "Q6 Top 5 4W Makers Units FY2024",
+            "expression": [
+              "VAR r = RANKX ( FILTER ( ALL ( dim_maker[maker] ), [4W Maker Sales All Years] > 0 ), [4W Maker Sales All Years], , DESC )",
+              "VAR keep = HASONEVALUE ( dim_maker[maker] ) && [4W Maker Sales All Years] > 0 && r <= 5",
+              "RETURN IF ( keep, [Maker EV Sold FY2024] )"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "6 Dashboard"
           }
         ]
       }
@@ -657,7 +863,7 @@
       {
         "name": "DataFolder",
         "kind": "m",
-        "expression": "\"C:\\ev-market-india\\data\\cleaned\\\" meta [IsParameterQuery = true, Type = \"Text\", IsParameterQueryRequired = true]"
+        "expression": "\"https://raw.githubusercontent.com/shaswatprof2000-git-hub/ev-market-india/main/data/cleaned/\" meta [IsParameterQuery = true, Type = \"Text\", IsParameterQueryRequired = true]"
       }
     ],
     "annotations": [
