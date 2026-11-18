@@ -1,0 +1,670 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "dim_date",
+        "columns": [
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isKey": true
+          },
+          {
+            "name": "fiscal_year",
+            "dataType": "int64",
+            "sourceColumn": "fiscal_year",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "fy_label",
+            "dataType": "string",
+            "sourceColumn": "fy_label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quarter",
+            "dataType": "string",
+            "sourceColumn": "quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fy_quarter",
+            "dataType": "string",
+            "sourceColumn": "fy_quarter",
+            "summarizeBy": "none",
+            "sortByColumn": "fy_quarter_sort"
+          },
+          {
+            "name": "fy_quarter_sort",
+            "dataType": "int64",
+            "sourceColumn": "fy_quarter_sort",
+            "summarizeBy": "none",
+            "formatString": "0",
+            "isHidden": true
+          },
+          {
+            "name": "calendar_year",
+            "dataType": "int64",
+            "sourceColumn": "calendar_year",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "month_num",
+            "dataType": "int64",
+            "sourceColumn": "month_num",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "month_name",
+            "dataType": "string",
+            "sourceColumn": "month_name",
+            "summarizeBy": "none",
+            "sortByColumn": "fiscal_month_num"
+          },
+          {
+            "name": "month_short",
+            "dataType": "string",
+            "sourceColumn": "month_short",
+            "summarizeBy": "none",
+            "sortByColumn": "fiscal_month_num"
+          },
+          {
+            "name": "fiscal_month_num",
+            "dataType": "int64",
+            "sourceColumn": "fiscal_month_num",
+            "summarizeBy": "none",
+            "formatString": "0"
+          },
+          {
+            "name": "month_year",
+            "dataType": "string",
+            "sourceColumn": "month_year",
+            "summarizeBy": "none",
+            "sortByColumn": "month_year_sort"
+          },
+          {
+            "name": "month_year_sort",
+            "dataType": "int64",
+            "sourceColumn": "month_year_sort",
+            "summarizeBy": "none",
+            "formatString": "0",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_date",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"dim_date.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
+                "    Typed = Table.TransformColumnTypes(Promoted, {{\"date\", type date}, {\"fiscal_year\", Int64.Type}, {\"fy_label\", type text}, {\"quarter\", type text}, {\"fy_quarter\", type text}, {\"fy_quarter_sort\", Int64.Type}, {\"calendar_year\", Int64.Type}, {\"month_num\", Int64.Type}, {\"month_name\", type text}, {\"month_short\", type text}, {\"fiscal_month_num\", Int64.Type}, {\"month_year\", type text}, {\"month_year_sort\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "dataCategory": "Time"
+      },
+      {
+        "name": "dim_state",
+        "columns": [
+          {
+            "name": "state",
+            "dataType": "string",
+            "sourceColumn": "state",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "state_map_name",
+            "dataType": "string",
+            "sourceColumn": "state_map_name",
+            "summarizeBy": "none",
+            "dataCategory": "StateOrProvince"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "sourceColumn": "region",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "state_type",
+            "dataType": "string",
+            "sourceColumn": "state_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "country",
+            "dataType": "string",
+            "sourceColumn": "country",
+            "summarizeBy": "none",
+            "dataCategory": "Country"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_state",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"dim_state.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
+                "    Typed = Table.TransformColumnTypes(Promoted, {{\"state\", type text}, {\"state_map_name\", type text}, {\"region\", type text}, {\"state_type\", type text}, {\"country\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_maker",
+        "columns": [
+          {
+            "name": "maker",
+            "dataType": "string",
+            "sourceColumn": "maker",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "maker_raw",
+            "dataType": "string",
+            "sourceColumn": "maker_raw",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "vehicle_category",
+            "dataType": "string",
+            "sourceColumn": "vehicle_category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "first_sale_month",
+            "dataType": "dateTime",
+            "sourceColumn": "first_sale_month",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_maker",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"dim_maker.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
+                "    Typed = Table.TransformColumnTypes(Promoted, {{\"maker\", type text}, {\"maker_raw\", type text}, {\"vehicle_category\", type text}, {\"first_sale_month\", type date}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_vehicle_category",
+        "columns": [
+          {
+            "name": "vehicle_category",
+            "dataType": "string",
+            "sourceColumn": "vehicle_category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "category_short",
+            "dataType": "string",
+            "sourceColumn": "category_short",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_unit_price_inr",
+            "dataType": "int64",
+            "sourceColumn": "avg_unit_price_inr",
+            "summarizeBy": "none",
+            "formatString": "0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_vehicle_category",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"dim_vehicle_category.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
+                "    Typed = Table.TransformColumnTypes(Promoted, {{\"vehicle_category\", type text}, {\"category_short\", type text}, {\"avg_unit_price_inr\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "fact_state_sales",
+        "columns": [
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "state",
+            "dataType": "string",
+            "sourceColumn": "state",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "vehicle_category",
+            "dataType": "string",
+            "sourceColumn": "vehicle_category",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "electric_vehicles_sold",
+            "dataType": "int64",
+            "sourceColumn": "electric_vehicles_sold",
+            "summarizeBy": "sum",
+            "formatString": "#,0"
+          },
+          {
+            "name": "total_vehicles_sold",
+            "dataType": "int64",
+            "sourceColumn": "total_vehicles_sold",
+            "summarizeBy": "sum",
+            "formatString": "#,0"
+          },
+          {
+            "name": "non_ev_sold",
+            "dataType": "int64",
+            "sourceColumn": "non_ev_sold",
+            "summarizeBy": "sum",
+            "formatString": "#,0"
+          },
+          {
+            "name": "total_vehicles_sold_raw",
+            "dataType": "int64",
+            "sourceColumn": "total_vehicles_sold_raw",
+            "summarizeBy": "sum",
+            "formatString": "#,0",
+            "isHidden": true
+          },
+          {
+            "name": "is_imputed",
+            "dataType": "boolean",
+            "sourceColumn": "is_imputed",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dq_note",
+            "dataType": "string",
+            "sourceColumn": "dq_note",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_state_sales",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"fact_state_sales.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
+                "    Typed = Table.TransformColumnTypes(Promoted, {{\"date\", type date}, {\"state\", type text}, {\"vehicle_category\", type text}, {\"electric_vehicles_sold\", Int64.Type}, {\"total_vehicles_sold\", Int64.Type}, {\"non_ev_sold\", Int64.Type}, {\"total_vehicles_sold_raw\", Int64.Type}, {\"is_imputed\", type logical}, {\"dq_note\", type text}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "EV Sold",
+            "expression": "SUM ( fact_state_sales[electric_vehicles_sold] )",
+            "formatString": "#,0",
+            "displayFolder": "1 Volume"
+          },
+          {
+            "name": "Total Vehicles Sold",
+            "expression": "SUM ( fact_state_sales[total_vehicles_sold] )",
+            "formatString": "#,0",
+            "displayFolder": "1 Volume"
+          },
+          {
+            "name": "Non-EV Sold",
+            "expression": "SUM ( fact_state_sales[non_ev_sold] )",
+            "formatString": "#,0",
+            "displayFolder": "1 Volume"
+          },
+          {
+            "name": "EV Penetration %",
+            "expression": "DIVIDE ( [EV Sold], [Total Vehicles Sold] )",
+            "formatString": "0.00%",
+            "displayFolder": "2 Penetration"
+          },
+          {
+            "name": "EV Sold FY2022",
+            "expression": "CALCULATE ( [EV Sold], dim_date[fiscal_year] = 2022 )",
+            "formatString": "#,0",
+            "displayFolder": "1 Volume"
+          },
+          {
+            "name": "EV Sold FY2023",
+            "expression": "CALCULATE ( [EV Sold], dim_date[fiscal_year] = 2023 )",
+            "formatString": "#,0",
+            "displayFolder": "1 Volume"
+          },
+          {
+            "name": "EV Sold FY2024",
+            "expression": "CALCULATE ( [EV Sold], dim_date[fiscal_year] = 2024 )",
+            "formatString": "#,0",
+            "displayFolder": "1 Volume"
+          },
+          {
+            "name": "Total Vehicles FY2022",
+            "expression": "CALCULATE ( [Total Vehicles Sold], dim_date[fiscal_year] = 2022 )",
+            "formatString": "#,0",
+            "displayFolder": "1 Volume"
+          },
+          {
+            "name": "Total Vehicles FY2024",
+            "expression": "CALCULATE ( [Total Vehicles Sold], dim_date[fiscal_year] = 2024 )",
+            "formatString": "#,0",
+            "displayFolder": "1 Volume"
+          },
+          {
+            "name": "Penetration FY2022",
+            "expression": "CALCULATE ( [EV Penetration %], dim_date[fiscal_year] = 2022 )",
+            "formatString": "0.00%",
+            "displayFolder": "2 Penetration"
+          },
+          {
+            "name": "Penetration FY2023",
+            "expression": "CALCULATE ( [EV Penetration %], dim_date[fiscal_year] = 2023 )",
+            "formatString": "0.00%",
+            "displayFolder": "2 Penetration"
+          },
+          {
+            "name": "Penetration FY2024",
+            "expression": "CALCULATE ( [EV Penetration %], dim_date[fiscal_year] = 2024 )",
+            "formatString": "0.00%",
+            "displayFolder": "2 Penetration"
+          },
+          {
+            "name": "Penetration Change FY22-24",
+            "expression": "IF ( NOT ISBLANK ( [Penetration FY2022] ), [Penetration FY2024] - [Penetration FY2022] )",
+            "formatString": "+0.00%;-0.00%;0.00%",
+            "displayFolder": "2 Penetration"
+          },
+          {
+            "name": "Penetration Declined FY22-24 Flag",
+            "expression": "IF ( [Penetration Change FY22-24] < 0, 1, 0 )",
+            "formatString": "0",
+            "displayFolder": "2 Penetration"
+          },
+          {
+            "name": "EV CAGR FY22-24",
+            "expression": "IF ( [EV Sold FY2022] > 0, ( [EV Sold FY2024] / [EV Sold FY2022] ) ^ ( 1 / 2 ) - 1 )",
+            "formatString": "0.0%",
+            "displayFolder": "3 Growth"
+          },
+          {
+            "name": "Total Vehicles CAGR FY22-24",
+            "expression": "IF ( [Total Vehicles FY2022] > 0, ( [Total Vehicles FY2024] / [Total Vehicles FY2022] ) ^ ( 1 / 2 ) - 1 )",
+            "formatString": "0.0%",
+            "displayFolder": "3 Growth"
+          },
+          {
+            "name": "Projected EV Sales FY2030",
+            "expression": "IF ( NOT ISBLANK ( [EV CAGR FY22-24] ), [EV Sold FY2024] * ( 1 + [EV CAGR FY22-24] ) ^ 6 )",
+            "formatString": "#,0",
+            "displayFolder": "3 Growth"
+          },
+          {
+            "name": "EV Sold YoY %",
+            "expression": [
+              "VAR fy = MAX ( dim_date[fiscal_year] )",
+              "VAR prev = CALCULATE ( [EV Sold], REMOVEFILTERS ( dim_date[fy_label] ), dim_date[fiscal_year] = fy - 1 )",
+              "RETURN IF ( prev > 0, DIVIDE ( [EV Sold], prev ) - 1 )"
+            ],
+            "formatString": "0.0%",
+            "displayFolder": "3 Growth"
+          },
+          {
+            "name": "EV Share of 3-Year Sales %",
+            "expression": "DIVIDE ( [EV Sold], CALCULATE ( [EV Sold], REMOVEFILTERS ( dim_date ) ) )",
+            "formatString": "0.0%",
+            "displayFolder": "3 Growth"
+          },
+          {
+            "name": "EV Revenue (INR)",
+            "expression": "SUMX ( dim_vehicle_category, [EV Sold] * dim_vehicle_category[avg_unit_price_inr] )",
+            "formatString": "#,0",
+            "displayFolder": "4 Revenue"
+          },
+          {
+            "name": "EV Revenue (Rs Cr)",
+            "expression": "DIVIDE ( [EV Revenue (INR)], 10000000 )",
+            "formatString": "#,0",
+            "displayFolder": "4 Revenue"
+          },
+          {
+            "name": "Revenue FY2022 (Rs Cr)",
+            "expression": "CALCULATE ( [EV Revenue (Rs Cr)], dim_date[fiscal_year] = 2022 )",
+            "formatString": "#,0",
+            "displayFolder": "4 Revenue"
+          },
+          {
+            "name": "Revenue FY2023 (Rs Cr)",
+            "expression": "CALCULATE ( [EV Revenue (Rs Cr)], dim_date[fiscal_year] = 2023 )",
+            "formatString": "#,0",
+            "displayFolder": "4 Revenue"
+          },
+          {
+            "name": "Revenue FY2024 (Rs Cr)",
+            "expression": "CALCULATE ( [EV Revenue (Rs Cr)], dim_date[fiscal_year] = 2024 )",
+            "formatString": "#,0",
+            "displayFolder": "4 Revenue"
+          },
+          {
+            "name": "Revenue Growth FY22-24",
+            "expression": "DIVIDE ( [Revenue FY2024 (Rs Cr)], [Revenue FY2022 (Rs Cr)] ) - 1",
+            "formatString": "0.0%",
+            "displayFolder": "4 Revenue"
+          },
+          {
+            "name": "Revenue Growth FY23-24",
+            "expression": "DIVIDE ( [Revenue FY2024 (Rs Cr)], [Revenue FY2023 (Rs Cr)] ) - 1",
+            "formatString": "0.0%",
+            "displayFolder": "4 Revenue"
+          }
+        ]
+      },
+      {
+        "name": "fact_maker_sales",
+        "columns": [
+          {
+            "name": "date",
+            "dataType": "dateTime",
+            "sourceColumn": "date",
+            "summarizeBy": "none",
+            "formatString": "yyyy-mm-dd",
+            "isHidden": true
+          },
+          {
+            "name": "vehicle_category",
+            "dataType": "string",
+            "sourceColumn": "vehicle_category",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "maker",
+            "dataType": "string",
+            "sourceColumn": "maker",
+            "summarizeBy": "none",
+            "isHidden": true
+          },
+          {
+            "name": "electric_vehicles_sold",
+            "dataType": "int64",
+            "sourceColumn": "electric_vehicles_sold",
+            "summarizeBy": "sum",
+            "formatString": "#,0"
+          },
+          {
+            "name": "is_others_bucket",
+            "dataType": "boolean",
+            "sourceColumn": "is_others_bucket",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_maker_sales",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(DataFolder & \"fact_maker_sales.csv\"), [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),",
+                "    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
+                "    Typed = Table.TransformColumnTypes(Promoted, {{\"date\", type date}, {\"vehicle_category\", type text}, {\"maker\", type text}, {\"electric_vehicles_sold\", Int64.Type}, {\"is_others_bucket\", type logical}}, \"en-US\")",
+                "in",
+                "    Typed"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Maker EV Sold",
+            "expression": "SUM ( fact_maker_sales[electric_vehicles_sold] )",
+            "formatString": "#,0",
+            "displayFolder": "5 Makers"
+          },
+          {
+            "name": "Maker EV Sold FY2022",
+            "expression": "CALCULATE ( [Maker EV Sold], dim_date[fiscal_year] = 2022 )",
+            "formatString": "#,0",
+            "displayFolder": "5 Makers"
+          },
+          {
+            "name": "Maker EV Sold FY2023",
+            "expression": "CALCULATE ( [Maker EV Sold], dim_date[fiscal_year] = 2023 )",
+            "formatString": "#,0",
+            "displayFolder": "5 Makers"
+          },
+          {
+            "name": "Maker EV Sold FY2024",
+            "expression": "CALCULATE ( [Maker EV Sold], dim_date[fiscal_year] = 2024 )",
+            "formatString": "#,0",
+            "displayFolder": "5 Makers"
+          },
+          {
+            "name": "Maker CAGR FY22-24",
+            "expression": "IF ( [Maker EV Sold FY2022] > 0, ( [Maker EV Sold FY2024] / [Maker EV Sold FY2022] ) ^ ( 1 / 2 ) - 1 )",
+            "formatString": "0.0%",
+            "displayFolder": "5 Makers"
+          },
+          {
+            "name": "Maker Market Share %",
+            "expression": "DIVIDE ( [Maker EV Sold], CALCULATE ( [Maker EV Sold], REMOVEFILTERS ( dim_maker ) ) )",
+            "formatString": "0.0%",
+            "displayFolder": "5 Makers"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "fact_state_sales_date_dim_date",
+        "fromTable": "fact_state_sales",
+        "fromColumn": "date",
+        "toTable": "dim_date",
+        "toColumn": "date"
+      },
+      {
+        "name": "fact_state_sales_state_dim_state",
+        "fromTable": "fact_state_sales",
+        "fromColumn": "state",
+        "toTable": "dim_state",
+        "toColumn": "state"
+      },
+      {
+        "name": "fact_state_sales_vehicle_category_dim_vehicle_category",
+        "fromTable": "fact_state_sales",
+        "fromColumn": "vehicle_category",
+        "toTable": "dim_vehicle_category",
+        "toColumn": "vehicle_category"
+      },
+      {
+        "name": "fact_maker_sales_date_dim_date",
+        "fromTable": "fact_maker_sales",
+        "fromColumn": "date",
+        "toTable": "dim_date",
+        "toColumn": "date"
+      },
+      {
+        "name": "fact_maker_sales_maker_dim_maker",
+        "fromTable": "fact_maker_sales",
+        "fromColumn": "maker",
+        "toTable": "dim_maker",
+        "toColumn": "maker"
+      },
+      {
+        "name": "fact_maker_sales_vehicle_category_dim_vehicle_category",
+        "fromTable": "fact_maker_sales",
+        "fromColumn": "vehicle_category",
+        "toTable": "dim_vehicle_category",
+        "toColumn": "vehicle_category"
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DataFolder",
+        "kind": "m",
+        "expression": "\"C:\\ev-market-india\\data\\cleaned\\\" meta [IsParameterQuery = true, Type = \"Text\", IsParameterQueryRequired = true]"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DataFolder\", \"dim_date\", \"dim_state\", \"dim_maker\", \"dim_vehicle_category\", \"fact_state_sales\", \"fact_maker_sales\"]"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+dataset,issue,action,rows_affected,detail
+state_sales,Null values,None found,0,
+state_sales,Fully duplicated rows,None found,0,
+maker_sales,Null values,None found,0,
+maker_sales,Fully duplicated rows,None found,0,
+dim_date,Null values,None found,0,
+dim_date,Fully duplicated rows,None found,0,
+dim_date,Fiscal year / quarter validated against Apr-Mar calendar,None needed,0,
+dim_date,Date stored as text DD-MMM-YY,Converted to ISO date (yyyy-mm-dd),36,
+state_sales,UTF-8 byte-order mark in header,Stripped on read,0,Header 'date' was read as '\ufeffdate' without this
+state_sales,Same state spelled two ways,Renamed 'Andaman & Nicobar Island' -> 'Andaman & Nicobar',69,Raw file used both spellings; Jan-2024 used the short form
+state_sales,Duplicate date/state/category keys after renaming,None found,0,
+state_sales,Missing month rows in source,Left missing (not invented) - noted for analysis,3,Andaman & Nicobar 4-Wheelers Jun-2021; Odisha 2-Wheelers Mar-2024; Odisha 4-Wheelers Mar-2024
+state_sales,EV sold > total vehicles sold (impossible),"Total imputed = mean of previous & next month = 13,046",1,Kerala 4-Wheelers Jan-2024: EV 734 vs total 164; EV value kept (it reconciles with maker file)
+state_sales,Very low totals in May/Jun-2021 across many states,Kept - genuine (COVID-19 second-wave lockdowns),135,
+state_sales,Chandigarh 2W penetration 55% in Mar-2023,Kept - genuine (Chandigarh halted petrol 2W registrations from Feb-2023 under its EV policy),1,
+state_sales,Ladakh / small UTs with single- or double-digit monthly totals,Kept - genuine small markets; treat their penetration % with caution,0,
+state_sales,Negative values,None found,0,
+state_sales,Telangana not present in source data,Noted - cannot be analysed,0,
+maker_sales,Maker names: typo ('Mercedes -Benz AG') and ALL-CAPS 2W names,Standardised to one clean display name per maker (raw kept in dim_maker.maker_raw),492,
+maker_sales,Duplicate date/category/maker keys,None found,0,
+maker_sales,Explicit zero-sales rows (mostly months before a maker's launch),Kept - harmless for totals; exclude zero bases when computing CAGR,88,"Ola Electric Apr-Nov 2021, Kia/PCA/Volvo/BMW/BYD early months, etc."
+maker_sales,Maker list changes by fiscal year,"Noted - Being, Jitendra, Pure EV absent in FY2024; BGauss, Battre, Kinetic Green only in FY2024 (small makers are likely rolled into 'Others' in other years)",0,
+cross-file,"EV totals: state file vs maker file, per month & category",Match exactly,0,72 month-category pairs compared; max abs difference = 0

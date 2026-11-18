@@ -1,0 +1,9 @@
+{
+  "version": "1.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../EV_Market_Study.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

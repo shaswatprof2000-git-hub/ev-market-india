@@ -1,0 +1,35 @@
+state,state_map_name,region,state_type,country
+Andaman & Nicobar,Andaman and Nicobar Islands,Islands,Union Territory,India
+Andhra Pradesh,Andhra Pradesh,South,State,India
+Arunachal Pradesh,Arunachal Pradesh,North-East,State,India
+Assam,Assam,North-East,State,India
+Bihar,Bihar,East,State,India
+Chandigarh,Chandigarh,North,Union Territory,India
+Chhattisgarh,Chhattisgarh,Central,State,India
+DNH and DD,Dadra and Nagar Haveli and Daman and Diu,West,Union Territory,India
+Delhi,Delhi,North,Union Territory,India
+Goa,Goa,West,State,India
+Gujarat,Gujarat,West,State,India
+Haryana,Haryana,North,State,India
+Himachal Pradesh,Himachal Pradesh,North,State,India
+Jammu and Kashmir,Jammu and Kashmir,North,Union Territory,India
+Jharkhand,Jharkhand,East,State,India
+Karnataka,Karnataka,South,State,India
+Kerala,Kerala,South,State,India
+Ladakh,Ladakh,North,Union Territory,India
+Madhya Pradesh,Madhya Pradesh,Central,State,India
+Maharashtra,Maharashtra,West,State,India
+Manipur,Manipur,North-East,State,India
+Meghalaya,Meghalaya,North-East,State,India
+Mizoram,Mizoram,North-East,State,India
+Nagaland,Nagaland,North-East,State,India
+Odisha,Odisha,East,State,India
+Puducherry,Puducherry,South,Union Territory,India
+Punjab,Punjab,North,State,India
+Rajasthan,Rajasthan,North,State,India
+Sikkim,Sikkim,North-East,State,India
+Tamil Nadu,Tamil Nadu,South,State,India
+Tripura,Tripura,North-East,State,India
+Uttar Pradesh,Uttar Pradesh,Central,State,India
+Uttarakhand,Uttarakhand,Central,State,India
+West Bengal,West Bengal,East,State,India
